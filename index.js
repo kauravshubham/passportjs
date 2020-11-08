@@ -11,7 +11,7 @@ var fbAuth=require('./strategies/facebook');
 
 app.all('/', (req, res) => {
     console.log("/",req.cookies);
-    res.sendFile('welcome.html',{root:__dirname})
+    res.sendFile('index.html',{root:__dirname})
 })
 
 // Configure Passport authenticated session persistence.
