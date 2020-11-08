@@ -8,6 +8,7 @@ app.use(require('body-parser').urlencoded({ extended: true }));
 app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
 
 var fbAuth=require('./strategies/facebook');
+var GAuth=require('./strategies/google');
 
 app.all('/', (req, res) => {
     console.log("/",req.cookies);
@@ -26,6 +27,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use("/facebook",fbAuth);
+app.use("/google",GAuth);
+
 
 var server = app.listen(3000, () => {
     var host = server.address().address
